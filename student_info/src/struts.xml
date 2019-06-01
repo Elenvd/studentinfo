@@ -3,6 +3,8 @@
 	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
+   <constant name="struts.devMode" value="true"/>
+   <!-- 控制开发模式，默认为false，若为true则表示改了action后可以不重启-->
    <package name="Login" namespace="/" extends="struts-default">
 	  <action name="login" class="com.action.LoginAction" method="login">
 			<result name="success">/index.jsp</result>

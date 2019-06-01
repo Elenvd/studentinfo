@@ -12,7 +12,6 @@
 <script type="text/javascript" src="js/jquery.SuperSlide.js"></script>
 <script type="text/javascript" src="js/Validform_v5.3.2_min.js"></script>
 </head>
-
 <body>
 
 
@@ -34,23 +33,16 @@
   <div id="o-box-down"  style="table-layout:fixed;">
    <div class="error-box"></div>
    
-   <form class="loginform" action="${pageContext.request.contextPath }/login.action" method="post">
-   <div class="msg">
-   		<span style="color:red;">
-            <%if(request.getAttribute("Msg")!=null){%>
-            <%=request.getAttribute("Msg")%>
-            <%}%>
-       </span>
-   </div>
+   <form name="form1" class="loginform" action="${pageContext.request.contextPath }/login.action" method="post">
    <div class="fm-item">
 	   <label for="logonId" class="form-label">学生信息系统登陆：</label>
-	   <input type="text" value="" name="user.userId" maxlength="100"  class="i-text" placeholder="请输入账号" >    
+	   <input type="text" value="" id="userId" name="user.userId" maxlength="100"  class="i-text" placeholder="请输入账号" >    
        <div class="ui-form-explain"></div>
   </div>
   
   <div class="fm-item">
 	   <label for="logonPass" class="form-label">登陆密码：</label>
-	   <input type="password" value="" maxlength="100" name="user.password" class="i-text" placeholder="请输入密码" >    
+	   <input type="password" value="" maxlength="100" id="password" name="user.password" class="i-text" placeholder="请输入密码" >    
        <div class="ui-form-explain"></div>
   </div>
   

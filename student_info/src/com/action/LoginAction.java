@@ -14,7 +14,7 @@ import com.pojo.User;
 public class LoginAction extends ActionSupport{
 	private static final long serialVersionUID = 1L;
 	private User user;             //定义user对象
-	private static int onLineCount;
+	
     //执行登录的方法
 	public String login() {
 		UserDao userDao = new UserDao();
@@ -22,18 +22,18 @@ public class LoginAction extends ActionSupport{
 		if(u != null) {
 			Map<String, Object> session = ServletActionContext.getContext().getSession();
 			session.put("user", user.getUserId());
-			onLineCount++;
 			ServletContext application = ServletActionContext.getServletContext();
 			Map<String, Object> userMap = (Map<String, Object>) application.getAttribute("userMap");
 			if(userMap == null) {
 				userMap = new HashMap<String, Object>();
 				userMap.put(user.getUserId(), user.getUserId());
+				
 			}else {
 				userMap.put(user.getUserId(), user.getUserId());
+				
 			}
 			application.setAttribute("userMap", userMap);
-			application.setAttribute("count", userMap.size());
-			application.setAttribute("onLineCount", onLineCount);
+			
 			
 			return SUCCESS;
 		}else {

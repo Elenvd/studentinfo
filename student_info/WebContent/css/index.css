@@ -11,7 +11,7 @@ h1{ float:left; margin:8px 0 0 20px; width:360px; height:64px;
     background-repeat: no-repeat;
     position:relative;top:1px;}
 .login-info{ float:left; margin:38px 0 0 23px; height:18px;}
-.login-info .welcome{ float:left; padding-left:20px; width:90px; height:18px; line-height:18px; background:url(../images/topuser.png) no-repeat left bottom; font-size:14px; color:#fff;}
+.login-info .welcome{ float:left; padding-left:20px; width:300px; height:18px; line-height:18px; background:url(../images/topuser.png) no-repeat left bottom; font-size:14px; color:#fff;}
 .login-info .welcome span{ float:left;}
 .login-info .welcome .user-name{ float:left; color:#fff;}
 .login-info .login-msg{ float:left; margin-left:22px;}

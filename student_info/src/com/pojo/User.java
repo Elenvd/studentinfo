@@ -7,7 +7,6 @@ public class User {
 	private String type;
 	
 	
-	
 	public String getUserId() {
 		return userId;
 	}

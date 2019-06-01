@@ -17,22 +17,25 @@ public class UserDao extends BaseDao {
 	HttpSession session = ServletActionContext.getRequest().getSession();
 	public User login(String userId,String password,String type){
 		User user = null;
+		//封装sql语句
 		String sql = "select * from user where userId = ? and password = ? and type = ?";
+		//连接到数据库
 		Connection conn = this.getConn();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, userId);
 			pstmt.setString(2, password);
 			pstmt.setString(3, type);
+			
 			ResultSet rs = pstmt.executeQuery();
 			if(rs != null && rs.next()){
 				user = new User();
 				user.setUserId(rs.getString("userId"));
-				user.setUserName(rs.getString("userName"));
+				user.setUserName(rs.getString("user.userName"));
 				user.setPassword(rs.getString("password"));
-				user.setPassword(rs.getString("type"));
+				user.setType(rs.getString("type"));
 				
-				ArrayList<User> list = new ArrayList<User>();
+				ArrayList<User> list = new ArrayList<User>(); //初始化list
 				list.add(user);
 				session.setAttribute("list", list);
 			}
@@ -76,7 +79,7 @@ public class UserDao extends BaseDao {
 	public ArrayList<User> list() {
 		User user = null;
 		ArrayList<User> userList = new ArrayList<User>();
-		String sql = "select * from test";
+		String sql = "select * from user";
 		Connection conn = this.getConn();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -84,7 +87,7 @@ public class UserDao extends BaseDao {
 			while(rs != null && rs.next()){
 				user = new User();
 				user.setUserId(rs.getString("userId"));
-				user.setUserName(rs.getString("username"));
+				user.setUserName(rs.getString("userName"));
 				user.setPassword(rs.getString("password"));
 				user.setType(rs.getString("type"));
 				userList.add(user);
