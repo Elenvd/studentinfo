@@ -59,52 +59,58 @@
         	<div class="sidebar">
             	<h2 class="sidebar-header"><p>功能导航</p></h2>
                 <ul class="nav">
-                	<li class="office current"><div class="nav-header"><a href="home.jsp" target="right" class="ue-clear"><span>首页</span><i class="icon"></i></a></div></li>
+                	<li class="office current"><div class="nav-header"><a href="index_home.jsp" target="right" class="ue-clear"><span>首页</span><i class="icon"></i></a></div></li>
                 	
                     <li class="land"><div class="nav-header"><a href="JavaScript:;" class="ue-clear"><span>个人信息管理</span><i class="icon hasChild"></i></a></div>
                         <ul class="subnav">                  
-                            <li><a href="mywork.html" target="right">我的信息</a></li>
-                            <li><a href="recode.html" target="right">修改密码</a></li>                         
+                            <li><a href="#" target="right">我的信息</a></li>
+                            <li><a href="#" target="right">修改密码</a></li>                         
                         </ul>
                     </li>
                     
                     <li class="train"><div class="nav-header"><a href="JavaScript:;" class="ue-clear" ><span>教师管理</span><i class="icon hasChild"></i></a></div>
                         <ul class="subnav">
-                            <li><a href="mytrain.html" target="right">教师列表</a></li>
-                            <li><a href="train.html" target="right">课程管理</a></li>
+                            <li><a href="#" target="right">教师列表</a></li>
+                            <li><a href="#" target="right">课程管理</a></li>
 
                         </ul>
                     </li>
 
 
-                    <li class="email"><div class="nav-header"><a href="mesage.html"class="ue-clear"  target="right"><span>消息推送</span><i class="icon"></i></a></div></li>
-                    <li class="list_m"><div class="nav-header"><a href="mailList.html" class="ue-clear" target="right"><span>通讯录管理</span><i class="icon"></i></a></div></li>
-                    <li class="news_m"><div class="nav-header"><a href="notice.html" class="ue-clear"  target="right"><span>通知通告</span><i class="icon"></i></a></div></li>
+                    <li class="email"><div class="nav-header"><a href="#"class="ue-clear"  target="right"><span>消息推送</span><i class="icon"></i></a></div></li>
+                    <li class="list_m"><div class="nav-header"><a href="#" class="ue-clear" target="right"><span>通讯录管理</span><i class="icon"></i></a></div>
+                    	<ul class="subnav">
+                            <li><a href="#" target="right">学生通讯录</a></li>
+                            <li><a href="#" target="right">教师通讯录</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="news_m"><div class="nav-header"><a href="#" class="ue-clear"  target="right"><span>通知通告</span><i class="icon"></i></a></div></li>
 
 
 
                      
-                    <li class="dossier"><div class="nav-header"><a href="JavaScript:;" class="ue-clear" ><span>档案管理</span><i class="icon hasChild"></i></a></div>
+                    <li class="dossier"><div class="nav-header"><a href="JavaScript:;" class="ue-clear" ><span>学生信息管理</span><i class="icon hasChild"></i></a></div>
                         <ul class="subnav">
-                            <li><a href="dossier_my.html" target="right">个人档案</a></li>
-                            <li><a href="dossier_puplic.html" target="right">公共档案</a></li>
+                            <li><a href="#" target="right">学生档案</a></li>
+                            <li><a href="#" target="right">学生成绩管理</a></li>
 
                         </ul>
                     </li>
 
                     <li class="part"><div class="nav-header"><a href="JavaScript:;" class="ue-clear" ><span>系统管理</span><i class="icon hasChild"></i></a></div>
                         <ul class="subnav">
-                            <li><a href="person.html" target="right">用户管理</a></li>
-                            <li><a href="part.html" target="right">部门管理</a></li>
-
-                            <li><a href="role.html" target="right">角色管理</a></li>
+                            <li><a href="#" target="right">用户管理</a></li>
+                            <li><a href="#" target="right">院系管理</a></li>
+                            <li><a href="#" target="right">班级管理</a></li>
+                            <li><a href="#" target="right">角色管理</a></li>
 
                         </ul>
                     </li>
                 </ul>
             </div>
             <div class="content">
-            	<iframe src="home.jsp" id="iframe" width="100%" height="100%" frameborder="0" name="right" style="min-width: 1100px"></iframe>
+            	<iframe src="index_home.jsp" id="iframe" width="100%" height="100%" frameborder="0" name="right" style="min-width: 1100px"></iframe>
             </div>
         </div>
     </div>

@@ -5,7 +5,20 @@
 <struts>
    <constant name="struts.devMode" value="true"/>
    <!-- 控制开发模式，默认为false，若为true则表示改了action后可以不重启-->
-   <package name="Login" namespace="/" extends="struts-default">
+   
+   <package name="login" namespace="/" extends="struts-default">
+      <interceptors>
+          <interceptor name="LoginInterceptor" class="com.interceptor.LoginInterceptor"/>
+          <interceptor-stack name="myStack">
+              <interceptor-ref name="defaultStack"></interceptor-ref>
+              <interceptor-ref name="LoginInterceptor"></interceptor-ref>
+          </interceptor-stack>
+      </interceptors>
+      <default-interceptor-ref name="myStack"/>
+      		
+      <global-results>
+			<result name="login">/login.jsp</result>	
+	</global-results>
 	  <action name="login" class="com.action.LoginAction" method="login">
 			<result name="success">/index.jsp</result>
 			<result name="error">/loginerror.jsp</result>
