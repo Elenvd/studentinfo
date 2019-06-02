@@ -63,11 +63,12 @@
                 	
                     <li class="land"><div class="nav-header"><a href="JavaScript:;" class="ue-clear"><span>个人信息管理</span><i class="icon hasChild"></i></a></div>
                         <ul class="subnav">                  
-                            <li><a href="#" target="right">我的信息</a></li>
+                            <li><a href="personInfo.jsp" target="right">我的信息</a></li>
                             <li><a href="#" target="right">修改密码</a></li>                         
                         </ul>
                     </li>
-                    
+                     
+                                     
                     <li class="train"><div class="nav-header"><a href="JavaScript:;" class="ue-clear" ><span>教师管理</span><i class="icon hasChild"></i></a></div>
                         <ul class="subnav">
                             <li><a href="#" target="right">教师列表</a></li>
@@ -75,8 +76,8 @@
 
                         </ul>
                     </li>
-
-
+                    
+                  
                     <li class="email"><div class="nav-header"><a href="#"class="ue-clear"  target="right"><span>消息推送</span><i class="icon"></i></a></div></li>
                     <li class="list_m"><div class="nav-header"><a href="#" class="ue-clear" target="right"><span>通讯录管理</span><i class="icon"></i></a></div>
                     	<ul class="subnav">
@@ -100,7 +101,7 @@
 
                     <li class="part"><div class="nav-header"><a href="JavaScript:;" class="ue-clear" ><span>系统管理</span><i class="icon hasChild"></i></a></div>
                         <ul class="subnav">
-                            <li><a href="#" target="right">用户管理</a></li>
+                            <li><a href="${pageContext.request.contextPath }/userList.action" target="right">用户管理</a></li>
                             <li><a href="#" target="right">院系管理</a></li>
                             <li><a href="#" target="right">班级管理</a></li>
                             <li><a href="#" target="right">角色管理</a></li>

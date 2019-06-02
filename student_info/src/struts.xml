@@ -29,4 +29,9 @@
 			<result name="error">/register.jsp</result>
 		</action>
   </package>
+  <package name="default" namespace="/" extends="struts-default">
+        <action name="userList" class="com.action.UserListAction" method="list">
+			<result name="success">/userList.jsp</result>
+		</action>
+  </package>
 </struts>
