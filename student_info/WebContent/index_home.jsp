@@ -6,6 +6,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
+
+<style>
+	#content{margin-top:20%;}
+</style>
 </head>
 <body>
 	<div id="content">
