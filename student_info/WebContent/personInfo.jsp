@@ -23,21 +23,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		      <th>密码</th>
 		      <th>真实姓名</th>
 		      <th>身份</th>
-		      <th>操作</th>
+		      
 		  </thead>
 		  <tbody>
 		      <td>${user.userId }</td>
 		      <td>${user.password }</td>
 		      <td>${user.userName }</td>
 		      <td>${user.type }</td>
-		      <td>
-
-					<a href="delete?userId=${user.userId }">删除</a>&nbsp;
-
-					<a href="findOne?userId=${user.userId}">修改</a>
-
-				</td>
-		      
 		  </tbody>
 		</table>
 	</c:forEach>

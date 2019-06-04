@@ -59,12 +59,12 @@
         	<div class="sidebar">
             	<h2 class="sidebar-header"><p>功能导航</p></h2>
                 <ul class="nav">
-                	<li class="office current"><div class="nav-header"><a href="index_home.jsp" target="right" class="ue-clear"><span>首页</span><i class="icon"></i></a></div></li>
+                	<li class="office current"><div class="nav-header"><a href="index_home.jsp" target="right" class="ue-clear" ><span>首页</span><i class="icon"></i></a></div></li>
                 	
                     <li class="land"><div class="nav-header"><a href="JavaScript:;" class="ue-clear"><span>个人信息管理</span><i class="icon hasChild"></i></a></div>
                         <ul class="subnav">                  
                             <li><a href="personInfo.jsp" target="right">我的信息</a></li>
-                            <li><a href="#" target="right">修改密码</a></li>                         
+                            <li><a href="${pageContext.request.contextPath }/userUpdate.action?userId=<s:property value="user.userId"/>"  target="right">修改个人信息</a></li>                         
                         </ul>
                     </li>
                      

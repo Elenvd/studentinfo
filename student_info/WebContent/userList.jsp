@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -13,6 +14,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
 <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+	$(function () { $("[data-toggle='tooltip']").tooltip(); });
+</script>
 </head>
 <body>
 <nav class="navbar navbar-default" role="navigation">
@@ -45,9 +49,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 		<input type="text" name="value" id="keyword" value="" class="form-control" placeholder="关键字">
 
-		<input type="submit" value="查询" class="btn btn-default">
+		<input type="submit" value="查询" class="btn btn-default" data-toggle="tooltip" title="查询" data-placement="bottom">
 
-		<a href="main.jsp" target="show" class="btn btn-default navbar-btn">添加用户信息</a>
+		<a href="${pageContext.request.contextPath }/addUser.jsp" target="right" class="btn btn-default navbar-btn" data-toggle="tooltip" title="添加用户信息" data-placement="bottom">添加用户信息</a>
 
 	</div>
 
@@ -79,10 +83,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        	  		<td>${user.type }</td>
        	  		<td>
 
-					<a href="delete?userId=${user.userId }">删除</a>&nbsp;
+					<a href="${pageContext.request.contextPath }/deleteUser.action?userId=${user.userId }"  target="right" data-toggle="tooltip" data-placement="left" title="真的要删除我吗？" >删除</a>&nbsp;
 
-					<a href="findOne?userId=${user.userId}">修改</a>
-
+					<a href="${pageContext.request.contextPath }/userUpdate.action?userId=${user.userId }"  target="right" data-toggle="tooltip" data-placement="right" title="想清楚哦！" >修改</a>&nbsp;
 				</td>
        	 	 </tr>
        	  </c:forEach>

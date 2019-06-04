@@ -40,16 +40,7 @@ public class LoginAction extends ActionSupport{
 			return ERROR;
 		}
 	}
-	//执行注册的方法
-	public String register() {
-		UserDao userDao = new UserDao();
-		boolean flag = userDao.register(user.getUserId(),  user.getUserName(),user.getPassword(), user.getType());
-		if(flag) {
-			return SUCCESS;
-		}else {
-			return ERROR;
-		}
-	}
+	
 
 	public User getUser() {
 		return user;

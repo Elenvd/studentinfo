@@ -33,5 +33,24 @@
         <action name="userList" class="com.action.UserListAction" method="list">
 			<result name="success">/userList.jsp</result>
 		</action>
+		
+		<action name="userUpdate" class="com.action.UserListAction" method="current">
+			<result name="success">/userUpdate.jsp</result>
+		</action>
+		
+		<action name="userUpdate2" class="com.action.UserListAction" method="update">
+			<result name="success">/userUpdateSuccess.jsp</result>
+		</action>
+		
+		<action name="deleteUser" class="com.action.UserListAction" method="delete">
+			<result name="success">/userList.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		 
+		<action name="addUser" class="com.action.UserListAction" method="add">
+			<result name="success">/addUserSuccess.jsp</result>
+		</action>
+		
+		
   </package>
 </struts>

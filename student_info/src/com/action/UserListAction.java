@@ -33,11 +33,33 @@ public class UserListAction extends ActionSupport {
 			return ERROR;
 		}
 	}
+	
+	public String add() {
+		UserDao userDao = new UserDao();
+		boolean flag = userDao.add(user.getUserId(), user.getUserName(),user.getPassword(), user.getType());
+		if(flag) {
+			return SUCCESS;
+		}else {
+			return ERROR;
+		}
+	}
+
+	
 
 	public String current() {
 		UserDao userDao = new UserDao();
 		user = userDao.queryByUserId(userId);
 		if (user != null) {
+			return SUCCESS;
+		} else {
+			return ERROR;
+		}
+	}
+	
+	public String delete() {
+		UserDao userDao = new UserDao();
+		boolean flag = userDao.delete(user);
+		if (flag) {
 			return SUCCESS;
 		} else {
 			return ERROR;

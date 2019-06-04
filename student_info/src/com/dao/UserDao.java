@@ -53,7 +53,7 @@ public class UserDao extends BaseDao {
 		return user;
 	}
 	
-	public boolean register(String userId,String userName,String password,String type){
+	public boolean add(String userId,String userName,String password,String type){
 		boolean flag = false;
 		String sql1 = "insert into user(userId,userName,password,type) values(?,?,?,?)";
 		Connection conn = this.getConn();
@@ -147,6 +147,27 @@ public class UserDao extends BaseDao {
 				conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}
+		return flag;
+	}
+	
+	
+	public boolean delete(User user){
+		boolean flag = false;
+		String sql1 = "delete user where userId=?";
+		Connection conn = this.getConn();
+		try {
+			pstmt = conn.prepareStatement(sql1);
+			pstmt.setString(1, user.getUserId());
+			int num = pstmt.executeUpdate();
+			if(num == 1){
+				flag = true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			this.closeAll();
 		}
 		return flag;
 	}
