@@ -5,11 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="Refresh" content="2;URL=${pageContext.request.contextPath }/index_home.jsp" />
-<title>Insert title here</title>
+<title>操作成功</title>
 </head>
 <body>
 	<h3 class="panel-title">
-			 添加成功！
-		</h3>
+			 操作成功！
+	</h3>
 </body>
 </html>

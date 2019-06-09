@@ -7,18 +7,23 @@
    <!-- 控制开发模式，默认为false，若为true则表示改了action后可以不重启-->
    
    <package name="login" namespace="/" extends="struts-default">
+   <!-- 定义一个拦截器 -->
       <interceptors>
           <interceptor name="LoginInterceptor" class="com.interceptor.LoginInterceptor"/>
+          <!-- 拦截器栈 -->
           <interceptor-stack name="myStack">
               <interceptor-ref name="defaultStack"></interceptor-ref>
               <interceptor-ref name="LoginInterceptor"></interceptor-ref>
           </interceptor-stack>
       </interceptors>
+      <!-- 使用此拦截器 -->
       <default-interceptor-ref name="myStack"/>
-      		
+       		
       <global-results>
-			<result name="login">/login.jsp</result>	
+			<result name="login">/login.jsp</result>
 	</global-results>
+	
+
 	  <action name="login" class="com.action.LoginAction" method="login">
 			<result name="success">/index.jsp</result>
 			<result name="error">/loginerror.jsp</result>
@@ -26,7 +31,7 @@
 		
 		<action name="register" class="com.action.LoginAction" method="register">
 			<result name="success">/login.jsp</result>
-			<result name="error">/register.jsp</result>
+			
 		</action>
   </package>
   <package name="default" namespace="/" extends="struts-default">
@@ -43,7 +48,7 @@
 		</action>
 		
 		<action name="deleteUser" class="com.action.UserListAction" method="delete">
-			<result name="success">/userList.jsp</result>
+			<result name="success">/success.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
 		 
@@ -51,6 +56,70 @@
 			<result name="success">/addUserSuccess.jsp</result>
 		</action>
 		
+		<action name="search" class="com.action.UserListAction" method="findClass">
+		    <result name="success">/userList.jsp</result>
+		    <result name="error">/searchError.jsp</result>
+		</action>
+		<!-- 院系 -->
+		<action name="departmentList" class="com.action.DepartmentListAction" method="list">
+			<result name="success">/departmentList.jsp</result>
+		</action>
+		
+		<action name="departmentUpdate" class="com.action.DepartmentListAction" method="current">
+			<result name="success">/departmentUpdate.jsp</result>
+		</action>
+		
+		<action name="departmentUpdate2" class="com.action.DepartmentListAction" method="update">
+			<result name="success">/departmentUpdateSuccess.jsp</result>
+		</action>
+		
+		<action name="deleteDepartment" class="com.action.DepartmentListAction" method="delete">
+			<result name="success">/success.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		
+		<action name="addDepartment" class="com.action.DepartmentListAction" method="add">
+			<result name="success">/addUserSuccess.jsp</result>
+		</action>
+		
+		<action name="search2" class="com.action.DepartmentListAction" method="findClass">
+		    <result name="success">/departmentList.jsp</result>
+		    <result name="error">/searchError.jsp</result>
+		</action>
+		<!-- 班级 -->
+        <action name="bjList" class="com.action.BjListAction" method="list">
+			<result name="success">/bjList.jsp</result>
+		</action>
+		
+		<action name="bjUpdate" class="com.action.BjListAction" method="current">
+			<result name="success">/bjUpdate.jsp</result>
+		</action>
+		
+		<action name="bjUpdate2" class="com.action.BjListAction" method="update">
+			<result name="success">/userUpdateSuccess.jsp</result>
+		</action>
+		
+		<action name="deleteBj" class="com.action.BjListAction" method="delete">
+			<result name="success">/success.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		
+		<action name="addBj" class="com.action.BjListAction" method="add">
+			<result name="success">/addBjSuccess.jsp</result>
+		</action>
+		
+		<action name="search3" class="com.action.BjListAction" method="findClass">
+		    <result name="success">/bjList.jsp</result>
+		    <result name="error">/searchError.jsp</result>
+		</action>
+		<!-- 学生通讯录 -->
+		<action name="addressBookList" class="com.action.AddressBookAction" method="list">
+			<result name="success">/addressBookList.jsp</result>
+		</action>
+		
+		<action name="addressBook2List" class="com.action.AddressBook2Action" method="list">
+			<result name="success">/addressBookList2.jsp</result>
+		</action>
 		
   </package>
 </struts>

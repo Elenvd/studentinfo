@@ -23,30 +23,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>	
   <div class="main" style="margin-top:5%;margin-left:35%;">
-  	<h1> <span class="label label-info">个人账号信息修改</span></h1>
+  	<h1> <span class="label label-info">院系信息修改</span></h1>
   	<br>
   	<br>
-	<form class="bs-example bs-example-form" role="form"  action="${pageContext.request.contextPath }/userUpdate2.action" method="post">
-		<s:iterator id="user" value="user">
+	<form class="bs-example bs-example-form" role="form"  action="${pageContext.request.contextPath }/departmentUpdate2.action" method="post">
+		<s:iterator id="department" value="department">
 		<div class="input-group">
-			<span class="input-group-addon">用户账号：</span>
-			<input type="text" class="form-control" name="user.userId" size="50" maxlength="20" style="width:300px;"
-							value='<s:property value="user.userId"/>' readonly="true">
+			<span class="input-group-addon">院系号：</span>
+			<input type="text" class="form-control" name="department.id" size="50" maxlength="20" style="width:300px;"
+							value='<s:property value="department.id"/>' readonly="true">
 		</div><br>
 		<div class="input-group">
-			<span class="input-group-addon">用户密码：</span>
-			<input type="text" class="form-control" name="user.password" size="50" maxlength="20" style="width:300px;"
-							value='<s:property value="user.password"/>'>
-		</div><br>
-		<div class="input-group">
-			<span class="input-group-addon">用户姓名：</span>
-			<input type="text" class="form-control" name="user.userName" size="50" maxlength="20" style="width:300px;"
-							value='<s:property value="user.userName"/>'>
-		</div><br>
-		<div class="input-group">
-			<span class="input-group-addon">用户角色：</span>
-			<input type="text" class="form-control" name="user.type" size="50" maxlength="20"  style="width:300px;"
-							value='<s:property value="user.type"/>' readonly="true">
+			<span class="input-group-addon">院系名：</span>
+			<input type="text" class="form-control" name="department.departmentName" size="50" maxlength="20" style="width:300px;"
+							value='<s:property value="department.departmentName"/>'>
 		</div><br>
 		<div class="form-group">
 		<div class="col-sm-offset-2 col-sm-10">

@@ -15,6 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
+  	<% session.removeAttribute("userName"); %>
      <% session.invalidate(); %>
   </body>
 </html>

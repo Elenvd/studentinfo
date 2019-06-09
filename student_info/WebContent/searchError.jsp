@@ -9,7 +9,7 @@
 </head>
 <body>
 	<h3 class="panel-title">
-			 添加成功！
+			您查询的结果为空，无此信息，请重新操作，谢谢！
 		</h3>
 </body>
 </html>

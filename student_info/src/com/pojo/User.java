@@ -5,8 +5,22 @@ public class User {
 	private String userName;
 	private String password;
 	private String type;
+	private String key;
+	private String strKey;
 	
 	
+	public String getKey() {
+		return key;
+	}
+	public void setKey(String key) {
+		this.key = key;
+	}
+	public String getStrKey() {
+		return strKey;
+	}
+	public void setStrKey(String strKey) {
+		this.strKey = strKey;
+	}
 	public String getUserId() {
 		return userId;
 	}

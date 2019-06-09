@@ -1,42 +1,39 @@
 package com.dao;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 
+import com.pojo.Department;
 import com.pojo.User;
-public class UserDao extends BaseDao {
+
+public class DepartmentDao extends BaseDao{
 	HttpSession session = ServletActionContext.getRequest().getSession();
-	public User login(String userId,String password,String type){
-		User user = null;
+	public Department print(String id,String departmentName){
+		Department department = null;
 		//封装sql语句
-		String sql = "select * from user where userId = ? and password = ? and type = ?";
+		String sql = "select * from department where id = ? and departmentName = ?";
 		//连接到数据库
 		Connection conn = this.getConn();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, userId);
-			pstmt.setString(2, password);
-			pstmt.setString(3, type);
+			pstmt.setString(1, id);
+			pstmt.setString(2, departmentName);
+			
 			
 			ResultSet rs = pstmt.executeQuery();
 			if(rs != null && rs.next()){
-				user = new User();
-				user.setUserId(rs.getString("userId"));
-				user.setUserName(rs.getString("user.userName"));
-				user.setPassword(rs.getString("password"));
-				user.setType(rs.getString("type"));
-				
-				ArrayList<User> list = new ArrayList<User>(); //初始化list
-				list.add(user);
+				department = new Department();
+				department.setId(rs.getString("id"));
+				department.setDepartmentName(rs.getString("department.departmentName"));
+				ArrayList<Department> list = new ArrayList<Department>(); //初始化list
+				list.add(department);
 				session.setAttribute("list", list);
 			}
 			
@@ -50,19 +47,17 @@ public class UserDao extends BaseDao {
 			this.closeAll();
 		}
 		
-		return user;
+		return department;
+		
 	}
-	
-	public boolean add(String userId,String userName,String password,String type){
+	public boolean add(String id,String departmentName){
 		boolean flag = false;
-		String sql1 = "insert into user(userId,userName,password,type) values(?,?,?,?)";
+		String sql1 = "insert into department(id,departmentName) values(?,?)";
 		Connection conn = this.getConn();
 		try {
 			pstmt = conn.prepareStatement(sql1);
-			pstmt.setString(1, userId);
-			pstmt.setString(2, userName);
-			pstmt.setString(3, password);
-			pstmt.setString(4, type);
+			pstmt.setString(1, id);
+			pstmt.setString(2, departmentName);
 			int num = pstmt.executeUpdate();
 			if(num == 1){
 				flag = true;
@@ -76,22 +71,20 @@ public class UserDao extends BaseDao {
 		return flag;
 	}
 	
-	public ArrayList<User> list() {
-		User user = null;
-		ArrayList<User> userList = new ArrayList<User>();
-		String sql = "select * from user";
+	public ArrayList<Department> list() {
+		Department department= null;
+		ArrayList<Department> departmentList = new ArrayList<Department>();
+		String sql = "select * from department";
 		Connection conn = this.getConn();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			while(rs != null && rs.next()){
-				user = new User();
-				user.setUserId(rs.getString("userId"));
-				user.setUserName(rs.getString("userName"));
-				user.setPassword(rs.getString("password"));
-				user.setType(rs.getString("type"));
-				userList.add(user);
-				session.setAttribute("userlist", userList);
+				department = new Department();
+				department.setId(rs.getString("id"));
+				department.setDepartmentName(rs.getString("departmentName"));
+				departmentList.add(department);
+				session.setAttribute("departmentlist", departmentList);
 			}
 			if(rs != null) rs.close();
 			if(pstmt != null) pstmt.close();
@@ -103,41 +96,38 @@ public class UserDao extends BaseDao {
 			this.closeAll();
 		}
 		
-		return userList;
+		return departmentList;
 	}
 	
-	public User queryByUserId(String userId) {
+	public Department queryById(String id) {
 		ResultSet rs = null;
-		User user = new User();
-		String sql = "select * from user where userId=?";
+		Department department = new Department();
+		String sql = "select * from department where id=?";
 		conn = this.getConn();
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, userId);
+			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			if(rs != null && rs.next()) {
-				user.setUserId(rs.getString("userId"));
-				user.setUserName(rs.getString("userName"));
-				user.setPassword(rs.getString("password"));
-				user.setType(rs.getString("type"));
+				department.setId(rs.getString("id"));
+				department.setDepartmentName(rs.getString("departmentName"));
+				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return user;
+		return department;
 	}
 	
-	public boolean update(User user){
+	public boolean update(Department department){
 		boolean flag = false;
 		conn = this.getConn();
-		String sql = "update user set userName=?,password=?,type=? where userId=?";
+		String sql = "update department set departmentName=? where id=?";
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, user.getUserName());
-			pstmt.setString(2, user.getPassword());
-			pstmt.setString(3, user.getType());
-			pstmt.setString(4, user.getUserId());
+			pstmt.setString(1, department.getDepartmentName());
+			pstmt.setString(2, department.getId());
 			int num = pstmt.executeUpdate();
 			if(num == 1)
 				flag = true;
@@ -152,14 +142,14 @@ public class UserDao extends BaseDao {
 	}
 	
 	
-	public boolean delete(String userId){
+	public boolean delete(String id){
 		boolean flag = false;
 		conn = this.getConn();
-		String sql1 = "delete from user where userId=?";
+		String sql1 = "delete from department where id=?";
 		
 		try {
 			pstmt = conn.prepareStatement(sql1);
-			pstmt.setString(1, userId);
+			pstmt.setString(1, id);
 			int num = pstmt.executeUpdate();
 			if(num == 1)
 				flag = true;
@@ -173,13 +163,13 @@ public class UserDao extends BaseDao {
 		return flag;
 	}
 	
-	public ArrayList<User> findClass(String key,String strKey){
-		User user = null;
-		ArrayList<User> userList = new ArrayList<User>();
-		String sql = "select * from user";
+	public ArrayList<Department> findClass(String key,String strKey){
+		Department department = null;
+		ArrayList<Department> departmentList = new ArrayList<Department>();
+		String sql = "select * from department";
 		if(strKey!=null){
 
-			sql="select * from user where "+key+" like'%"+strKey+"%'";
+			sql="select * from department where "+key+" like'%"+strKey+"%'";
 
 		}
 		Connection conn = this.getConn();
@@ -187,13 +177,11 @@ public class UserDao extends BaseDao {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			while(rs != null && rs.next()){
-				user = new User();
-				user.setUserId(rs.getString("userId"));
-				user.setUserName(rs.getString("userName"));
-				user.setPassword(rs.getString("password"));
-				user.setType(rs.getString("type"));
-				userList.add(user);
-				session.setAttribute("userlist", userList);
+				department = new Department();
+				department.setId(rs.getString("id"));
+				department.setDepartmentName(rs.getString("departmentName"));
+				departmentList.add(department);
+				session.setAttribute("departmentlist", departmentList);
 			}
 			if(rs != null) rs.close();
 			if(pstmt != null) pstmt.close();
@@ -205,8 +193,6 @@ public class UserDao extends BaseDao {
 			this.closeAll();
 		}
 		
-		return userList;
+		return departmentList;
 	}
 }
-
-

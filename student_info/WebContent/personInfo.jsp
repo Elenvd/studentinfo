@@ -13,25 +13,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
 <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+p{font-size:30px;margin-left:30px;}
+h4{font-size:40px;margin-left:30px;}
+</style>
 </head>
 <body>
-	<c:forEach var="user" items="${sessionScope.list }">
-		<table class="table table-striped">
-		  <caption>个人信息</caption>
-		  <thead>
-		      <th>账号</th>
-		      <th>密码</th>
-		      <th>真实姓名</th>
-		      <th>身份</th>
-		      
-		  </thead>
-		  <tbody>
-		      <td>${user.userId }</td>
-		      <td>${user.password }</td>
-		      <td>${user.userName }</td>
-		      <td>${user.type }</td>
-		  </tbody>
-		</table>
-	</c:forEach>
+<div id="main" style="width:600px;margin-top:100px;margin-left:100px;">
+	<div class="media">
+    <div class="media-left">
+      <img src="https://static.runoob.com/images/mix/img_avatar.png" class="media-object" style="width:200px;height:200px;">
+    </div>
+    <c:forEach var="user" items="${sessionScope.list }">
+    <div class="media-body">
+      <h4 class="media-heading">个人账号信息</h4>
+      <br>
+      
+      <p>账号：${user.userId }</p>
+      <p>密码：${user.password }</p>
+      <p>真实姓名：${user.userName }</p>
+      <p>身份：${user.type }</p>
+    </div>
+    </c:forEach>
+  </div>
+</div>	
 </body>
 </html>

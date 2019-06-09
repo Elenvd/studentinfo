@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'updateInfo.jsp' starting page</title>
+    <title>添加新院系</title>
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
 	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -23,31 +23,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>	
   <div class="main" style="margin-top:5%;margin-left:35%;">
-  	<h1> <span class="label label-info">个人账号信息修改</span></h1>
+  	<h1> <span class="label label-info">添加新院系</span></h1>
   	<br>
   	<br>
-	<form class="bs-example bs-example-form" role="form"  action="${pageContext.request.contextPath }/userUpdate2.action" method="post">
-		<s:iterator id="user" value="user">
+	<form class="bs-example bs-example-form" role="form"  action="${pageContext.request.contextPath }/addDepartment.action" method="post">
+		
 		<div class="input-group">
-			<span class="input-group-addon">用户账号：</span>
-			<input type="text" class="form-control" name="user.userId" size="50" maxlength="20" style="width:300px;"
-							value='<s:property value="user.userId"/>' readonly="true">
+			<span class="input-group-addon">院系号：</span>
+			<input type="text" class="form-control" name="department.id" size="50" maxlength="20" style="width:300px;"
+							value=''>
 		</div><br>
 		<div class="input-group">
-			<span class="input-group-addon">用户密码：</span>
-			<input type="text" class="form-control" name="user.password" size="50" maxlength="20" style="width:300px;"
-							value='<s:property value="user.password"/>'>
+			<span class="input-group-addon">院系名：</span>
+			<input type="text" class="form-control" name="department.departmentName" size="50" maxlength="20" style="width:300px;"
+							value=''>
 		</div><br>
-		<div class="input-group">
-			<span class="input-group-addon">用户姓名：</span>
-			<input type="text" class="form-control" name="user.userName" size="50" maxlength="20" style="width:300px;"
-							value='<s:property value="user.userName"/>'>
-		</div><br>
-		<div class="input-group">
-			<span class="input-group-addon">用户角色：</span>
-			<input type="text" class="form-control" name="user.type" size="50" maxlength="20"  style="width:300px;"
-							value='<s:property value="user.type"/>' readonly="true">
-		</div><br>
+		
 		<div class="form-group">
 		<div class="col-sm-offset-2 col-sm-10">
 			<button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="检查好了再提交哦！">提交</button>
@@ -55,8 +46,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<button type="reset" class="btn btn-default">重置</button>
 		</div>
 	</div>
-	</s:iterator>
+	
 	</form>
 </div>
+  
+  
   </body>
 </html>

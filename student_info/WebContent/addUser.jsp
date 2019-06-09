@@ -22,42 +22,43 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>	
-  <h1 class="text-danger">添加新用户</h1>
-  <div style="text-align:center;margin-top:10%;">	
-	<form class="form-horizontal" role="form" action="${pageContext.request.contextPath }/addUser.action" method="post">
-	<div class="form-group">
-		<label for="firstname" class="col-sm-2 control-label">用户账号：</label>
-		<div class="col-sm-10">
-			<input type="text" name="user.userId" size="100" maxlength="20" value=''>
-		</div>
-	</div>
-	<div class="form-group">
-		<label for="lastname" class="col-sm-2 control-label">用户姓名：</label>
-		<div class="col-sm-10">
-			<input type="text" name="user.userName" size="100" maxlength="20" value=''>
-		</div>
-	</div>
-	<div class="form-group">
-		<label for="lastname" class="col-sm-2 control-label">用户密码：</label>
-		<div class="col-sm-10">
-			<input type="text" name="user.password" size="100" maxlength="20" value=''>
-		</div>
-	</div>
-	<div class="form-group">
-		<label for="lastname" class="col-sm-2 control-label">用户角色：</label>
-		<div class="col-sm-10">
-			<input type="text" name="user.type" size="100" maxlength="20" value=''>
-		</div>
-	</div>
-	<div class="form-group">
+  <div class="main" style="margin-top:5%;margin-left:35%;">
+  	<h1> <span class="label label-info">添加新用户</span></h1>
+  	<br>
+  	<br>
+	<form class="bs-example bs-example-form" role="form"  action="${pageContext.request.contextPath }/addUser.action" method="post">
+		
+		<div class="input-group">
+			<span class="input-group-addon">用户账号：</span>
+			<input type="text" class="form-control" name="user.userId" size="50" maxlength="20" style="width:300px;"
+							value=''>
+		</div><br>
+		<div class="input-group">
+			<span class="input-group-addon">用户密码：</span>
+			<input type="text" class="form-control" name="user.password" size="50" maxlength="20" style="width:300px;"
+							value=''>
+		</div><br>
+		<div class="input-group">
+			<span class="input-group-addon">用户姓名：</span>
+			<input type="text" class="form-control" name="user.userName" size="50" maxlength="20" style="width:300px;"
+							value=''>
+		</div><br>
+		<div class="input-group">
+			<span class="input-group-addon">用户角色：</span>
+			<input type="text" class="form-control" name="user.type" size="50" maxlength="20"  style="width:300px;"
+							value='' >
+		</div><br>
+		<div class="form-group">
 		<div class="col-sm-offset-2 col-sm-10">
 			<button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="检查好了再提交哦！">提交</button>
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<button type="reset" class="btn btn-default">重置</button>
 		</div>
 	</div>
-
-</form>
+	
+	</form>
 </div>
+  
+  
   </body>
 </html>

@@ -31,23 +31,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
     <div>
 
-        <form action="search" class="navbar-form navbar-left" role="search" method="post">
+        <form action="${pageContext.request.contextPath }/search.action" class="navbar-form navbar-left" role="search" method="post">
 
 	<div id="search">	
 
-		<select name="key" class="form-control">
+		<select name="user.key" class="form-control">
 
-			<option value="user.userId">用户账号</option>
+			<option value="user.userId" <c:if test="${sessionScope.strType=='userId'}">selected='selected'</c:if>>用户账号</option>
 
-			<option value="user.userName">用户名</option>
+			<option value="user.userName"<c:if test="${sessionScope.strType=='userName'}">selected='selected'</c:if>>用户名</option>
 
-			<option value="user.password">用户密码</option>
+			<option value="user.password" <c:if test="${sessionScope.strType=='password'}">selected='selected'</c:if>>用户密码</option>
 
-			<option value="user.type">角色</option>
+			<option value="user.type" <c:if test="${sessionScope.strType=='type'}">selected='selected'</c:if>>角色</option>
 
 		</select>
 
-		<input type="text" name="value" id="keyword" value="" class="form-control" placeholder="关键字">
+		<input type="text" name="user.strKey" id="keyword" value="${sessionScope.strKey}" class="form-control" placeholder="关键字">
 
 		<input type="submit" value="查询" class="btn btn-default" data-toggle="tooltip" title="查询" data-placement="bottom">
 
